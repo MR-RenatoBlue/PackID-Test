@@ -12,14 +12,22 @@ gem 'puma', '~> 3.11'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.4', '>= 5.4.3'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise', '~> 4.8'
+# Gem rolify to differentiate users' roles
+#gem 'rolify', '~> 6.0'
+# Gem cancancan for authorization
+#gem 'cancancan', '~> 3.3'
+#Gem toastr for notifications
+#gem 'toastr-rails'
+#backgroung jobs
+#gem 'sidekiq'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
