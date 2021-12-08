@@ -12,8 +12,8 @@ import "bootstrap";
 import "../stylesheets/application"
 //import "@fortawesome/fontawesome-free/css/all.css";
 $(document).on("turbolinks:load", function() {
-  $('[data-bs-toggle="tooltip"]').tooltip();
-  $('[data-bs-toggle="popover"]').popover();
+  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="popover"]').popover();
   //$('.toast').toast({ autohide: false })
   //$('#toast').toast('show')
 })
