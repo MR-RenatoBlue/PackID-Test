@@ -1,2 +1,4 @@
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<% if flash.any? %>
+<!-- find me in app/helpers/application_helper.rb -->
+  <%= toastr_flash %>
+<% end %>

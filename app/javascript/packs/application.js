@@ -9,19 +9,19 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
-import "../stylesheets/application"
-//import "@fortawesome/fontawesome-free/css/all.css";
+import "../stylesheets/application";
+
 $(document).on("turbolinks:load", function() {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
-  //$('.toast').toast({ autohide: false })
-  //$('#toast').toast('show')
 })
 var jQuery = require('jquery');
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
-//require('notifications');
-console.log('Hello World from Webpacker')
+
+//toastr for notifications
+window.toastr = require('toastr');
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
