@@ -1,4 +1,4 @@
-<% if flash.any? %>
+<% unless flash.empty? %>
 <!-- find me in app/helpers/application_helper.rb -->
   <%= toastr_flash %>
 <% end %>

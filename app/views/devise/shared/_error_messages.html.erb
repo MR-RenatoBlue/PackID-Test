@@ -1,8 +1,24 @@
-<% flash.each do |msg_type, message| %>
-  <div class="alert <%= bootstrap_class_for(msg_type) %>">
-    <div class="container">
-      <button class="close" data-dismiss="alert"><span>×</span></button>
-      <%= message %>
+<!--<% if resource.errors.any? %>
+  <% flash.each do |msg_type, message| %>
+    <div class="alert <%= bootstrap_class_for(msg_type) %>">
+      <div class="container">
+        <button class="close" data-dismiss="alert"><span>×</span></button>
+        <%= message %>
+      </div>
     </div>
+  <% end %>
+<% end  %>-->
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+
+    <ul>
+      <script type= "text/javascript">  
+        <% resource.errors.full_messages.each do |message| %>
+        
+          toastr.error('<%= message %>');
+        
+        <% end %>
+      </script>
+    </ul>
   </div>
 <% end %>
