@@ -16,7 +16,13 @@ module ApplicationHelper
       text = <<~EOF
       <script>
         $(document).on("turbolinks:load", function() {
-          toastr.#{type}('#{message}', '', { closeButton: true, progressBar: true })
+          toastr.#{type}('#{message}', '', 
+          {
+           closeButton: true,
+           progressBar: true,
+           preventDuplicates: true,
+           preventOpenDuplicates: true 
+           })
         });
       </script>
       EOF
