@@ -26,6 +26,14 @@
     <%= form.text_field :price %>
   </div>
 
+  <div class="form-floating">
+    <%= hidden_field_tag "product[category_ids][]", nil %>
+    <% Category.all.each do |category| %>
+      <%= check_box_tag 'product[category_ids][]', category.id, @product.category_ids.include?(category.id) %>
+      <%= category.name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

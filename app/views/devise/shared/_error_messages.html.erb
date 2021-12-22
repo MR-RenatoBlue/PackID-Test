@@ -1,3 +1,19 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <h6>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+       %>
+    </h6>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <!--<% if resource.errors.any? %>
   <% flash.each do |msg_type, message| %>
     <div class="alert <%= bootstrap_class_for(msg_type) %>">
@@ -8,7 +24,7 @@
     </div>
   <% end %>
 <% end  %>-->
-<% if resource.errors.any? %>
+<!--<% if resource.errors.any? %>
   <div id="error_explanation">
 
     <ul>
@@ -21,4 +37,4 @@
       </script>
     </ul>
   </div>
-<% end %>
+<% end %>-->
