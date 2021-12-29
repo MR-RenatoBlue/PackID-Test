@@ -30,17 +30,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_184910) do
     t.index ["product_id"], name: "index_categorizations_on_product_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.bigint "user_id"
-    t.string "action"
-    t.string "notifiable_type"
-    t.integer "notifiable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -61,7 +50,4 @@ ActiveRecord::Schema.define(version: 2021_12_21_184910) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "categorizations", "categories"
-  add_foreign_key "categorizations", "products"
-  add_foreign_key "notifications", "users"
 end
