@@ -29,8 +29,10 @@
   <div class="form-floating">
     <%= hidden_field_tag "product[category_ids][]", nil %>
     <% Category.all.each do |category| %>
-      <%= check_box_tag 'product[category_ids][]', category.id, @product.category_ids.include?(category.id) %>
-      <%= category.name %>
+      <ul>
+        <%= check_box_tag 'product[category_ids][]', category.id, @product.category_ids.include?(category.id) %>
+        <%= category.name %>
+      </ul>
     <% end %>
   </div>
 

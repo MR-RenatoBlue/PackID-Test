@@ -8,8 +8,11 @@
       <div class="card-body">
         <p class="card-text"><%= product.description %></p>
         <p class="card-text">
+            <h3>Categories:</h3>
           <% product.categories.each do |cat| %>
-            <%= cat.name %>
+            <ul>
+              <li><%= cat.name %></li>
+            </ul>
           <% end  %>
         </p>
         <div class="container">
