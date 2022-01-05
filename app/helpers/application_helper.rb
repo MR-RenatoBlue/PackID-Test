@@ -19,9 +19,11 @@ module ApplicationHelper
           {
            closeButton: true,
            progressBar: true,
+           closeMethod: 'slideUp',
+           closeDuration: 300,
            preventDuplicates: true,
            preventOpenDuplicates: true 
-           })
+           });
       </script>
       EOF
       flash_messages << text.html_safe if message

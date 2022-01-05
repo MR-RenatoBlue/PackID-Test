@@ -20,9 +20,7 @@
             <div class="p-2 bd-highlight"><%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary" %></div>
             <div class="p-2 bd-highlight"><%= button_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div>
             <div class="ml-auto p-2 bd-highlight">
-              <button type="button" class="btn btn-primary">
-              <span class="badge badge-light"><%= number_to_currency(product.price, unit: "R$", separator: ",", precision: 2) %></span>
-              </button>
+              <h4><%= number_to_currency(product.price, unit: "R$", separator: ",", precision: 2) %></h4>
             </div>
           </div>
         </div>

@@ -20,19 +20,21 @@
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control"  %>
   </div>
-
   <div class="form-group">
-    <%= form.label :price %>
-    <%= form.text_field :price, class: "form-control"  %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= form.label :price %>
+        <%= form.number_field :price, class: "form-control"  %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-floating">
+  <div class="form-group">
     <%= hidden_field_tag "product[category_ids][]", nil %>
     <% Category.all.each do |category| %>
-      <ul>
-        <%= check_box_tag 'product[category_ids][]', category.id, @product.category_ids.include?(category.id) %>
+      <div class="form-check">
+        <%= check_box_tag 'product[category_ids][]', category.id, @product.category_ids.include?(category.id), class: "form-check-input" %>
         <%= category.name %>
-      </ul>
+      </div>
     <% end %>
   </div>
 
