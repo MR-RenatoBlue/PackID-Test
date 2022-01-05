@@ -15,7 +15,6 @@ module ApplicationHelper
 
       text = <<~EOF
       <script>
-        $(document).on("turbolinks:load", function() {
           toastr.#{type}('#{message}', '', 
           {
            closeButton: true,
@@ -23,7 +22,6 @@ module ApplicationHelper
            preventDuplicates: true,
            preventOpenDuplicates: true 
            })
-        });
       </script>
       EOF
       flash_messages << text.html_safe if message

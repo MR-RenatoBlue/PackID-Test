@@ -21,7 +21,13 @@ window.$ = window.jQuery = jQuery;
 
 //toastr for notifications
 window.toastr = require('toastr');
-
+//prevent caching toastr
+$(document).on("turbolinks:before-cache", function() {
+  const flash_message_element = $(".toastr-top-right")
+  if (flash_message_element) {
+    flash_message_element.remove()
+  }
+})
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
