@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
-gem "hirb"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use postgresql as the database for Active Record
@@ -21,7 +20,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.8'
 # Gem rolify to differentiate users' roles
-#gem 'rolify', '~> 6.0'
+gem 'rolify', '~> 6.0'
 # Gem cancancan for authorization
 #gem 'cancancan', '~> 3.3'
 #Gem toastr for notifications
@@ -50,6 +49,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #Hirb for better db tables visualization
+  gem "hirb"  
 end
 
 
