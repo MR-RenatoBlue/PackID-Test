@@ -13,9 +13,12 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><div class="btn-group" role="group" aria-label=""><%= link_to 'Show', category, class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary" %>
-        <%= button_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div></td>
+        <td class="text-right">
+          <div class="btn-group" role="group" aria-label=""><%= link_to 'Show', category, class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary" %>
+            <%= button_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
