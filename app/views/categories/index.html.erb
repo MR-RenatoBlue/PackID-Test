@@ -14,9 +14,14 @@
       <tr>
         <td><%= category.name %></td>
         <td class="text-right">
-          <div class="btn-group" role="group" aria-label=""><%= link_to 'Show', category, class: "btn btn-primary" %>
+          <div class="btn-group" role="group" aria-label="">
+          <%= link_to 'Show', category, class: "btn btn-primary" %>
+          <% if can? :edit, Category %>            
             <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary" %>
+          <% end %>
+          <% if can? :destroy, Category %>
             <%= button_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <% end %>
           </div>
         </td>
       </tr>
@@ -25,8 +30,9 @@
 </table>
 
 <br>
-<div class="form-group">
-  <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>
-</div>
-
+<% if can? :create, Category %>
+  <div class="form-group">
+    <%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
 

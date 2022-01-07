@@ -5,7 +5,7 @@ class Ability
 
   def initialize(user)
     #defining some arbitrary permissions
-    can :read, Product
+    can :read, Product # Guest User
     return unless user.present?
     return unless user.has_role? :operator
     can :manage, Product
@@ -13,7 +13,14 @@ class Ability
     return unless user.has_role? :admin
     can :manage, :all
 
+    #can Actions
 
+    # read: [:index, :show]
+    # create: [:new, :create]
+    # update: [:edit, :update]
+    # destroy: [:destroy]
+
+    
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

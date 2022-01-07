@@ -8,20 +8,26 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <%# if can? :read, Category %>
+        <% if can? :read, Category %>
           <li class="nav-item">
             <%= link_to "Categories", categories_path , class: "nav-link" %>
           </li>     
-        <%# end %>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Products", products_path , class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <% if current_user.has_role? :admin %>
-              <li><%= link_to 'Users', users_path, class: "nav-link" %></li>
-            <% end %>
+        <!--Display links based on current user authentication/authorization-->
+        <% if user_signed_in? %>
+          <% if current_user.has_role? :admin %>
+            <li class="nav-item">
+              <li><%= link_to "Admin Area", users_path, class: "nav-link" %></li>
+            </li>
+          <% else  %>
+            <li class="nav-item">
+              <li><%= link_to "Your User", user_path(current_user), class: "nav-link" %></li>
+            </li>
           <% end %>
+        <% end %>
         </li>
       </ul>
 
