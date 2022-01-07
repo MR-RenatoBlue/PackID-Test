@@ -7,7 +7,6 @@ class Ability
     #defining some arbitrary permissions
     can :read, Product # Guest User
     return unless user.present?
-    return unless user.has_role? :operator
     can :manage, Product
     can :read, Category   
     return unless user.has_role? :admin

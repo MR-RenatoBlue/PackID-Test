@@ -16,7 +16,7 @@
         <li class="nav-item">
           <%= link_to "Products", products_path , class: "nav-link" %>
         </li>
-        <!--Display links based on current user authentication/authorization-->
+        <%#Display links based on current user authentication/authorization %>
         <% if user_signed_in? %>
           <% if current_user.has_role? :admin %>
             <li class="nav-item">
