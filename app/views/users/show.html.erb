@@ -3,3 +3,6 @@
 <% else %>
   <h1> Your User</h1>
 <% end%>
+
+  <%= @user.email %><br>
+  member since: <%= @user.created_at.to_formatted_s(:short) %>

@@ -8,7 +8,8 @@ class Ability
     can :read, Product # Guest User
     return unless user.present?
     can :manage, Product
-    can :read, Category   
+    can :read, Category 
+    can :read, User, email: user.email
     return unless user.has_role? :admin
     can :manage, :all
 
