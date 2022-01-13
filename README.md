@@ -29,12 +29,15 @@
 7) Envio de emails de confirmação de cadastro e recuperar senha.
 
 ## Running the app
-  
-In order to run the app run:
+1. Clone this repository via git `gh` client with `bash`, run: 
+```
+$ gh repo clone MR-RenatoBlue/PackID-Test
+```
+2. Run:
 ```
 $ docker-compose up -d
 ```
-This will build and try to run the current stack: 
+This will build and try to run the current stack, i.e.: 
 ```
 Rails version 5.2.6
 Postgresql version 12.1
@@ -48,19 +51,19 @@ As we all know we'll have to run some migrations to open the app, but currently 
 
 So we have to add the `Postgresql role` by hand
 
-1. Connect to the `Postgresql Server` via bash, run:
+3. Connect to the `Postgresql Server` via bash, run:
 ```
 $ docker exec -tiu postgres gr-action-database-1 psql
 ```
 
-2. Then you'll have access to the postgresql CLI, run:
+4.  Then you'll have access to the postgresql CLI, run:
 ```
 postgres=# CREATE USER mrblue;
 postgres=# ALTER USER mrblue with SUPERUSER;
 ```
 `Done.` We created the `mrblue` role
 
-3. Then we can create, migrate and seed our DB via bash, run:
+5. Then we can create, migrate and seed our DB via bash, run:
 ```
 $ docker compose exec app bundle exec rake db:setup db:migrate
 ```
@@ -70,3 +73,38 @@ puts "Creating first User as admin"
 User.create(name: "admin@packid.com", password: "password" )
 User.first.add_role :admin
 ```
+That's because our app currently have two roles (`gem Rolify`): `admin` and `operator`, for each role we have some differences in matter of Authorization (`gem CanCanCan`). So via db:seeds we create the first User that has role admin
+
+6. Use our credentials on `http://localhost:3000/users/sign_in`
+```
+email: admin@packid.com
+password: "password"
+```
+
+7. On the `bootstrap 4.6` navbar go to `Categories` and create `two` or more categories
+
+8. Go to `Products` and create a new one. You can add one or more categories to the same product
+  - There's a client-sive JS validation on `Price` field, try it out.
+
+9. `Logout` and go to `Sign Up` and create a new user sugestion: `operator1@packid.com`
+ - When creating new users there's a call back on `User` model that assigns a default role: `operator`
+
+10. Try to repeat steps `7.` and `8.`
+
+11. Logout and Login again as `admin@packid.com` and click on `Users`
+  
+  We can see a list of users with email and roles displaying
+  - Click on `Edit`
+
+  We can change Users role and even destroy them.
+
+###### Using Rails Console
+
+Feel free to test it out via rails console. Run:
+```
+$ docker compose exec app rails console
+```
+
+###### New upcomming Features
+
+If we take a look at branches there're some features under development: `add images` to our resources and `live updates` with Action Cable
