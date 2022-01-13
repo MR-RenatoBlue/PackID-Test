@@ -4,5 +4,10 @@
   <h1> Your User</h1>
 <% end%>
 
-  <%= @user.email %><br>
-  member since: <%= @user.created_at.to_formatted_s(:short) %>
+  <p class="font-weight-bold">Email: <%= @user.email %><br></p>
+  <p class="font-italic">Member since: <%= @user.created_at.to_formatted_s(:short) %></p>
+
+<% if can? :manage, User %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+<% end %>

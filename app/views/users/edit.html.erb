@@ -3,9 +3,9 @@
   <%= form_with(model: @user) do |form| %>
     <h4> Change User's Role</h4>
     <div class="form-group">
-      <div class="form-check">
+      <div class="col-md-4 checkbox-list">
         <%#= form.label "Change User's role", class: "form-check-label" %> 
-        <%= form.collection_check_boxes :role_ids, Role.all, :id, :name, class: "form-check-input" %>
+        <%= form.collection_check_boxes :role_ids, Role.all, :id, :name%>
       </div>
     </div>
     <div class="form-group">
@@ -22,3 +22,5 @@
       <%= button_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure? THIS CANNOT BE UNDONE' }, class: "btn btn-danger" %>
     </div>
   </div>
+  <%= link_to 'Show', @user %> |
+  <%= link_to 'Back', users_path %>

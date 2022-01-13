@@ -1,2 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 @import "toastr";
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+  width: 10%;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  display: inline-block;
+  margin-left: 10%;
+  width: 80%;
+}
