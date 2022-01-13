@@ -1,0 +1,8 @@
+<% if current_user.has_role? :admin %>
+  <h1> User </h1>
+<% else %>
+  <h1> Your User</h1>
+<% end%>
+
+  <%= @user.email %><br>
+  member since: <%= @user.created_at.to_formatted_s(:short) %>

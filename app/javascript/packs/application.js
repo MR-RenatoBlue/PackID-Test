@@ -10,10 +10,21 @@ require("channels")
 
 import "bootstrap";
 import "../stylesheets/application";
-
 $(document).on("turbolinks:load", function() {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
+  // autofill in the format "ff,ff"
+  $('[data-behavior="price"').on("keyup", function() {
+    let valor = $(this).val();
+    let v = valor.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    //v = v.replace(".", ",");
+    v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+    v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+    valor = v;
+    $(this).val(v);
+    
+  })
 })
 var jQuery = require('jquery');
 global.$ = global.jQuery = jQuery;

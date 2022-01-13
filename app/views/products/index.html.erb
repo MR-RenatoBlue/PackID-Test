@@ -17,8 +17,12 @@
         <div class="container">
           <div class="d-flex flex-row bd-highlight mb-3">
             <div class="p-2 bd-highlight"><%= link_to 'Show', product, class: "btn btn-primary" %></div>
-            <div class="p-2 bd-highlight"><%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary" %></div>
-            <div class="p-2 bd-highlight"><%= button_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div>
+            <% if can? :edit, Product %>
+              <div class="p-2 bd-highlight"><%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary" %></div>
+            <% end %>
+            <% if can? :destroy, Product %>
+              <div class="p-2 bd-highlight"><%= button_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div>
+            <% end %>
             <div class="ml-auto p-2 bd-highlight">
               <h4><%= number_to_currency(product.price, unit: "R$", separator: ",", precision: 2) %></h4>
             </div>
@@ -29,6 +33,8 @@
   <% end  %>
 </div>
 <br>
-<div class="container">
-  <%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
-</div>
+<% if can? :create, Product %>
+  <div class="container">
+    <%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

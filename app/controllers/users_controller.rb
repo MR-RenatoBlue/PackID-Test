@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
   def index
-    @users = User.order(created_at: :desc)
+    if can? :manage, User
+      @users = User.order(created_at: :desc)
+    else
+      authorize! :manage, User
+    end
   end
 
   def show    
