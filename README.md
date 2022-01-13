@@ -112,4 +112,4 @@ If we take a look at branches there're some features under development:
 - `live updates` with Action Cable
 
 If you want to see in another repository too:
- - `pagination` with gem `pagy` and `search` feature [old version app](https://github.com/MR-RenatoBlue/Manage-System/blob/main/app/controllers/users_controller.rb)
+ - `pagination` with gem `pagy` and `search` feature [old 'release' app](https://github.com/MR-RenatoBlue/Manage-System/blob/main/app/controllers/users_controller.rb)
