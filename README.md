@@ -78,7 +78,7 @@ That's because our app currently have two roles (`gem Rolify`): `admin` and `ope
 6. Use our credentials on `http://localhost:3000/users/sign_in`
 ```
 email: admin@packid.com
-password: "password"
+password: password
 ```
 
 7. On the `bootstrap 4.6` navbar go to `Categories` and create `two` or more categories
