@@ -84,7 +84,7 @@ password: password
 7. On the `bootstrap 4.6` navbar go to `Categories` and create `two` or more categories
 
 8. Go to `Products` and create a new one. You can add one or more categories to the same product
-  - There's a client-sive JS validation on `Price` field, try it out.
+  - There's a client-sive JS validation on `Price` field, try it out or take a look: [jquery && regex](https://github.com/MR-RenatoBlue/PackID-Test/blob/2167f1421e8b98d627fa178b12ee03d8bedd9002/app/javascript/packs/application.js#L17)
 
 9. `Logout` and go to `Sign Up` and create a new user sugestion: `operator1@packid.com`
  - When creating new users there's a call back on `User` model that assigns a default role: `operator`
