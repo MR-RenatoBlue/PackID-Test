@@ -105,11 +105,5 @@ Feel free to test it out via rails console. Run:
 $ docker compose exec app rails console
 ```
 
-###### New upcomming Features
-
-If we take a look at branches there're some features under development: 
-- `add images` to our resources [link](https://github.com/MR-RenatoBlue/PackID-Test/tree/add_images)
-- `live updates` with Action Cable [link](https://github.com/MR-RenatoBlue/PackID-Test/tree/action_cable_live_updates)
-
 If you want to see in another repository too:
  - `pagination` with gem `pagy` and `search` feature [old 'release' app](https://github.com/MR-RenatoBlue/Manage-System/blob/main/app/controllers/users_controller.rb)
