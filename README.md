@@ -58,8 +58,8 @@ $ docker exec -tiu postgres gr-action-database-1 psql
 
 4.  Then you'll have access to the postgresql CLI, run:
 ```
-postgres=# CREATE USER mrblue;
-postgres=# ALTER USER mrblue with SUPERUSER;
+=# CREATE USER mrblue;
+=# ALTER USER mrblue with SUPERUSER;
 ```
 `Done.` We created the `mrblue` role
 
