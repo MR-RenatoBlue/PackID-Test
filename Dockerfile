@@ -1,6 +1,6 @@
 FROM ruby:2.5.5-alpine
 
-ENV BUNDLER_VERSION=2.0.2
+ENV BUNDLER_VERSION=2.2.30
 
 RUN apk add --update --virtual \
   runtime-deps \
@@ -29,7 +29,7 @@ RUN apk add --update --virtual \
   curl \
   && rm -rf /var/cache/apk/*
 
-RUN gem install bundler -v 2.0.2
+RUN gem install bundler -v 2.2.30
 
 WORKDIR /app
 
