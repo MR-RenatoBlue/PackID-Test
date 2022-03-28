@@ -33,6 +33,19 @@
 
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              Online Users
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" id="online-users">
+              <!--<button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+              <button class="dropdown-item" type="button">Something else here</button>-->
+              <button class="dropdown-item disabled" type="button" >
+                <%= render partial: "users/online", collection: User.online, as: :user %>
+              </button>
+            </div>
+          </div>        
         <li class="nav-item">
           <%= link_to "Logged as: #{current_user.email}", edit_user_registration_path, class: "nav-link disabled" %>
         </li>
