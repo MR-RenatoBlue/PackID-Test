@@ -1,3 +1,4 @@
+<div class="container">
 
   <p>
     <strong>Name:</strong>
@@ -8,6 +9,13 @@
     <strong>Description:</strong>
     <%= @product.description %>
   </p>
+  <p>
+    <strong>Categories:</strong>
+    <% @product.categories.each do |category|%>
+      <%= category.name %>
+      <%= ", " %>
+    <% end%>
+  </p>
 
   <p>
     <strong>Price:</strong>
@@ -17,3 +25,4 @@
   <%= link_to 'Edit', edit_product_path(@product) %> |
 <% end %>
 <%= link_to 'Back', products_path %>
+</div>
